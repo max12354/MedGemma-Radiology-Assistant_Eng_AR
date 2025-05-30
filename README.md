@@ -1,21 +1,72 @@
-## 🚀 Setup and Installation
+<div align="center">
+  <h1>🧠 MedGemma Radiology Assistant / مساعد الأشعة MedGemma 🧠</h1>
+  <p>
+    An AI-powered medical image analysis tool using Google's MedGemma and Gradio, providing bilingual (English/Arabic) reports.
+    <br />
+    أداة تحليل صور طبية مدعومة بالذكاء الاصطناعي باستخدام نموذج MedGemma من جوجل و Gradio، تقدم تقارير ثنائية اللغة (إنجليزية/عربية).
+  </p>
+</div>
+
+<p align="center">
+  <img src="Screenshotfinal.png" alt="MedGemma App Interface" width="700"/>
+</p>
+
+## 🌟 Features / الميزات
+
+-   Upload medical radiology images (JPG, PNG, DICOM, NIfTI).
+    *تحميل صور الأشعة الطبية (JPG, PNG, DICOM, NIfTI).*
+-   Enter a text prompt to guide the AI's analysis.
+    *إدخال استفسار نصي لتوجيه تحليل الذكاء الاصطناعي.*
+-   Receive an AI-generated report in English.
+    *الحصول على تقرير تم إنشاؤه بواسطة الذكاء الاصطناعي باللغة الإنجليزية.*
+-   Automatically get an Arabic translation of the report (chunked for longer texts).
+    *الحصول تلقائيًا على ترجمة عربية للتقرير (مقسمة للنصوص الطويلة).*
+-   Download the dual-language report as a text file.
+    *تحميل التقرير ثنائي اللغة كملف نصي.*
+
+---
+
+## ⚠️ Disclaimer / إخلاء مسؤولية
+
+<div align="center" style="padding: 10px; border: 1px solid #ffcc00; background-color: #fff9e6; border-radius: 5px;">
+  <p style="font-size: 1.1em; color: #997a00;">
+    <strong>ENGLISH:</strong> This tool is for <strong>research and demonstration purposes ONLY</strong>. It should <strong>NOT</strong> be used for actual medical diagnosis or treatment decisions. Always consult with qualified medical professionals for any health concerns.
+  </p>
+  <hr style="border-top: 1px dashed #ffcc00; margin: 10px 0;">
+  <p style="font-size: 1.1em; color: #997a00; direction: rtl; text-align: right;">
+    <strong>بالعربية:</strong> هذه الأداة مخصصة <strong>لأغراض البحث والعرض التوضيحي فقط</strong>. <strong>لا ينبغي</strong> استخدامها لاتخاذ قرارات تشخيص أو علاج طبي فعلي. استشر دائمًا أخصائيين طبيين مؤهلين لأي مخاوف صحية.
+  </p>
+</div>
+
+---
+
+## 🛠️ Prerequisites / المتطلبات الأساسية
+
+-   Python 3.9+
+-   For GPU acceleration (highly recommended for speed):
+    -   An NVIDIA GPU with CUDA support.
+    -   Up-to-date NVIDIA drivers.
+    -   PyTorch installed with CUDA support (see setup instructions).
+
+---
+
+## 🚀 Setup and Installation / الإعداد والتثبيت
 
 Follow these steps to set up the project environment:
 
-1.  **Clone the repository:**
+1.  **Clone the repository / استنساخ المستودع:**
     ```bash
     git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
     cd YOUR_REPOSITORY_NAME
     ```
+    *(Replace `YOUR_USERNAME/YOUR_REPOSITORY_NAME` with your actual GitHub path)*
 
-2.  **Create and activate a Python virtual environment:**
-
-    You can use either Conda (recommended for easier PyTorch with CUDA installation) or Python's built-in `venv`.
+2.  **Create and activate a Python virtual environment / إنشاء وتفعيل بيئة بايثون افتراضية:**
 
     *   **Using `conda` (Recommended for PyTorch with CUDA):**
         ```bash
         # Create a new Conda environment (e.g., named 'medgemma_env' with Python 3.10)
-        conda create --name medgemma_env python=3.10
+        conda create --name medgemma_env python=3.10 -y
         conda activate medgemma_env
         ```
 
@@ -30,25 +81,34 @@ Follow these steps to set up the project environment:
         # source venv/bin/activate
         ```
 
-3.  **Install PyTorch with CUDA support:**
-    This is crucial for GPU acceleration and performance.
-    *   **If using `conda`:** Go to the [official PyTorch website](https://pytorch.org/get-started/locally/), select your OS, **Package: Conda**, Language: Python, and your desired **Compute Platform (CUDA version, e.g., 11.8 or 12.1)**. Run the generated `conda install ...` command.
-        *Example for Conda and CUDA 11.8:*
-        ```bash
-        conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-        ```
-    *   **If using `venv` with `pip`:** Go to the [official PyTorch website](https://pytorch.org/get-started/locally/), select your OS, **Package: Pip**, Language: Python, and your desired **Compute Platform (CUDA version, e.g., 11.8 or 12.1)**. Run the generated `pip install ...` command.
-        *Example for pip and CUDA 11.8:*
-        ```bash
-        pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-        ```
+3.  **Install PyTorch with CUDA support / تثبيت PyTorch مع دعم CUDA:**
+    This is crucial for GPU acceleration. Visit the [official PyTorch website](https://pytorch.org/get-started/locally/) and select:
+    - OS: Your Operating System
+    - Package: `Conda` or `Pip` (matching your environment choice above)
+    - Language: Python
+    - Compute Platform: A CUDA version compatible with your GPU/drivers (e.g., CUDA 11.8 or 12.1).
+    
+    Then, run the generated installation command from the PyTorch website in your activated environment.
+    *Example for **pip** and CUDA 11.8:*
+    ```bash
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    ```
+    *Example for **conda** and CUDA 11.8:*
+    ```bash
+    conda install pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+    ```
 
-4.  **Install other dependencies:**
-    Once PyTorch is installed and your environment is active, install the remaining packages from `requirements.txt`:
+4.  **Install other dependencies / تثبيت الاعتماديات الأخرى:**
+    Once PyTorch is installed and your environment is active:
     ```bash
     pip install -r requirements.txt
     ```
-    *Note: The first time you run the application, it might attempt to download NLTK's 'punkt' tokenizer data if it's not found in standard NLTK data locations. If you encounter issues with NLTK, you can try running `python -c "import nltk; nltk.download('punkt')"` once in your activated environment.*
+    *(The script will attempt to download NLTK's 'punkt' data on first run if needed. If issues persist, run `python -c "import nltk; nltk.download('punkt')"` in your environment.)*
 
-## ▶️ How to Run
-# ... (rest of your README remains the same) ...
+---
+
+## ▶️ How to Run / كيفية التشغيل
+
+Once the setup is complete, ensure your virtual environment is active, then run:
+```bash
+python med.py
