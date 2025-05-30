@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment folder (if you were to create one INSIDE project, good practice)
+venv/
+.venv/
+medgemma-env/ # In case you ever accidentally create one with this name *inside*
+
+# NLTK Data
+nltk_data/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+
+# Output files from your script
+medgemma_dual_report.txt

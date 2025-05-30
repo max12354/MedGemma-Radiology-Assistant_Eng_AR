@@ -1,0 +1,16 @@
+# Please install PyTorch, torchvision, and torchaudio separately
+# with the appropriate CUDA version for your system before running
+# 'pip install -r requirements.txt'.
+# Visit https://pytorch.org/get-started/locally/ for instructions.
+
+transformers>=4.38.0   # Or a more recent stable version
+gradio>=4.19.0       # Or a more recent stable version
+pydicom>=2.4.0
+Pillow>=10.0.0
+nibabel>=5.0.0
+nltk>=3.8.0
+sentencepiece>=0.1.90 # For Helsinki-NLP tokenizer
+sacremoses>=0.0.50    # Often a sub-dependency for Helsinki-NLP
+pylibjpeg>=2.0.0      # For DICOM JPEG decompression
+pylibjpeg-libjpeg>=2.1.0 # For DICOM JPEG decompression
+accelerate            # Often useful for transformers, especially with large models
