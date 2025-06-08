@@ -56,8 +56,8 @@ Follow these steps to set up the project environment:
 
 1.  **Clone the repository / استنساخ المستودع:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-    cd YOUR_REPOSITORY_NAME
+    git clone https://huggingface.co/google/medgemma-4b-it
+    cd medgemma-4b-it
     ```
     *(Replace `YOUR_USERNAME/YOUR_REPOSITORY_NAME` with your actual GitHub path)*
 
